@@ -7,6 +7,8 @@ import { TellerComponent } from './teller/teller.component';
 import { NavComponent } from './nav/nav.component';
 import { ContactComponent } from './contact/contact.component';
 
+import { BankService } from './bank.service'
+
 import { router } from './app.router';
 
 @NgModule({
@@ -21,7 +23,7 @@ import { router } from './app.router';
     BrowserModule,
     router
   ],
-  providers: [],
+  providers: [BankService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
