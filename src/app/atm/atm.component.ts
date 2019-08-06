@@ -8,6 +8,9 @@ import { BankService } from '../bank.service';
 })
 export class AtmComponent {
 
+  withdrawalAmount: number;
+  depositAmount: number;
+
   constructor() { }
 
 }

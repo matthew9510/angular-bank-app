@@ -7,11 +7,13 @@
   <aside class="options">
     <!-- Add functionality to the buttons below -->
     <ul class="options-list">
-      <li class="options-item">
-        <button>Make a Widthdrawl</button>
+      <li class="options-item input">
+        <input type="number" [(ngModel)]="withdrawalAmount" placeholder="0.00">
+        <button (click)="withdrawal(this.withdrawalAmount)">Make a Withdrawal</button>
       </li>
-      <li class="options-item">
-        <button>Deposit Money</button>
+      <li class="options-item input">
+          <input type="number" [(ngModel)]="depositAmount" placeholder="0.00">
+          <button (click)="deposit(this.depositAmount)">Deposit Money</button>
       </li>
       <li class="options-item">
         <button>Balance Inquiry</button>
