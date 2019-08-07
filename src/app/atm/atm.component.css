@@ -1,3 +1,7 @@
+
+
+
+/* stock css */
 .main {
   display: flex;
   flex-flow: row nowrap;
@@ -15,10 +19,106 @@
 
 .options-list {
   list-style: none;
+  padding: 0%;
+  padding-left: 10%;
 }
 
 .options-item {
+  display:flex;
+  flex-wrap: nowrap;
+  
+}
 
+.shared{
+  width:50%;
+  max-width: 18%;
+}
+
+.welcome{
+  text-align: left;
+}
+.insufficient-funds{
+  color:red;
+}
+
+@media only screen and (max-width: 1113px) {
+  .shared{
+    max-width: 100%;
+  }
+
+  .options-list{
+    padding-right: 10%;
+  }
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*edited
+
+.main {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.display {
+  flex-basis: 50vw;
+  background-color: darkslategrey;
+  color: white;
+}
+
+.options {
+  flex-basis: 50vw;
+}
+
+.options-list {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  width: 100%; 100 % of the 50% of the parent container 
+}
+
+.options-item { 
+  width:100%; 
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+} 
+
+ .shared{
+  flex: 0 1 50%;
+} 
+
+
+.input{
+  display:flex;
+  flex-wrap: nowrap;
+}
+
+.shared{
+  flex: 1 1 25px;
+}
+ 
+*/

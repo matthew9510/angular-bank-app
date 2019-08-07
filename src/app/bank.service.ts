@@ -8,17 +8,17 @@ export class BankService {
   constructor() { }
 
   account: any = {
-    fname: 'first name',
-    lname: 'last name',
-    age: 0,
+    fname: 'John',
+    lname: 'Dow',
+    age: 23,
     address: {
       street: '1234 street st',
       city: 'city',
       state: 'state',
       zip: 12345,
-      country: 'canada'
+      country: 'United States'
     },
-    balance: 0.01,
+    balance: 0.0,
     currency: 'usd',
     transactions: [
       {

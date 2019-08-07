@@ -8,9 +8,59 @@ import { BankService } from '../bank.service';
 })
 export class AtmComponent {
 
-  withdrawalAmount: number;
-  depositAmount: number;
+  value: number;
+  isValidAmount: boolean = true;
+  showTransactionHistory: boolean = false;
+  showBalance: boolean = false;
 
-  constructor() { }
+
+  constructor(public _bankService: BankService) { }
+
+  withdraw(): void {
+    this.isValidAmount = true;
+    if (this.value != undefined) {
+      this._bankService.account.balance -= this.value;
+      let date = new Date()
+      this._bankService.account.transactions.push(
+        {
+          date: `${date.getMonth()}-${date.getDay()}-${date.getFullYear() % 100}`,
+          type: 'withdraw',
+          amount: this.value,
+          currency: 'usd'
+        })
+    }
+    else {
+      this.isValidAmount = false;
+    }
+    this.value = undefined;
+  }
+
+  deposit(): void {
+    this.isValidAmount = true;
+    if (this.value != undefined) {
+      this._bankService.account.balance += this.value;
+      this._bankService.account.transactions.push(
+        {
+          date: '01-01-01',
+          type: 'deposit',
+          amount: this.value,
+          currency: 'usd'
+        })
+
+    }
+    else {
+      this.isValidAmount = false;
+    }
+    this.value = undefined;
+  }
+
+  balanceInquiry(): void{
+      this.showBalance = true;
+  }
+
+  transactionHistory(): void{
+      this.showTransactionHistory = true;
+  }
+
 
 }

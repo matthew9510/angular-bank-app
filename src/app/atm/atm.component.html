@@ -1,25 +1,34 @@
 <h1>ATM View</h1>
+
 <div class="main">
   <section class="display">
-    > Welcome, Henry!
+    <p class="welcome"> Welcome, {{this._bankService.account.fname}}!</p>
+    <p class="insufficient-funds" *ngIf="this.isSufficientFunds === false">You can not withdraw
+      ${{this.withdrawalAmount}}, you don't have sufficient funds. You currently have
+      ${{this._bankService.account.balance}}</p>
+    <p *ngIf="isValidAmount===false"> Please enter a number before clicking deposit or withdraw.</p>
+    <p *ngIf="showBalance === true">Current balance: ${{this._bankService.account.balance}}</p>
+    <div *ngIf="showTransactionHistory === true">
+      <p *ngFor="let transaction of this._bankService.account.transactions">{{transaction.toString()}}</p>
+    </div>
     <!-- Display Feedback information here -->
   </section>
   <aside class="options">
     <!-- Add functionality to the buttons below -->
     <ul class="options-list">
       <li class="options-item input">
-        <input type="number" [(ngModel)]="withdrawalAmount" placeholder="0.00">
-        <button (click)="withdrawal(this.withdrawalAmount)">Make a Withdrawal</button>
+        <input class="shared" type="number" [(ngModel)]="value" placeholder="0.00">
+        <button class="shared" (click)="withdraw()">Make a Withdrawal</button>
       </li>
       <li class="options-item input">
-          <input type="number" [(ngModel)]="depositAmount" placeholder="0.00">
-          <button (click)="deposit(this.depositAmount)">Deposit Money</button>
+        <input class="shared" type="number" [(ngModel)]="value" placeholder="0.00">
+        <button class="shared smaller-button" (click)="deposit()">Deposit Money</button>
       </li>
       <li class="options-item">
-        <button>Balance Inquiry</button>
+        <button (click)="balanceInquiry()">Balance Inquiry</button>
       </li>
       <li class="options-item">
-        <button>Transactions History</button>
+        <button (click)="transactionHistory()">Transactions History</button>
       </li>
     </ul>
   </aside>
